@@ -1,0 +1,16 @@
+<aura:component extends="ui:inputNumber" extensible="true"  description="The range used in the input.">
+    <aura:attribute name="min" type="Integer" default="0" description="Specifies the minimum integer allowed. Default value is &#8220;0&#8221;."/>
+    <aura:attribute name="max" type="Integer" default="100" description="Specifies the maximum integer allowed. Default value is &#8220;100&#8221;."/>
+    <aura:attribute name="step" type="Integer" default="1" description="Specifies the allowed integer intervals. Default value is &#8220;1&#8221;."/>
+    <aura:attribute name="value" type="Integer" default="0" description="The input value of the integer."/>
+    
+    <input type="range"
+    	   id="{!v.domId}"
+           class="{!v.class + ' input'}"
+    	   min="{!v.min}"
+    	   max="{!v.max}"
+    	   step="{!v.step}"
+    	   value="{!v.value}" 
+    	   aria-describedby="{!v.ariaDescribedBy}"/>
+
+</aura:component>

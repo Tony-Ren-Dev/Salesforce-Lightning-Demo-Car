@@ -1,0 +1,63 @@
+<aura:component access="GLOBAL">
+      <c:container class="demo-container" size="large" align="center">
+        <h2 class="slds-text-heading--large slds-m-bottom--small"><span>Tabs: Base</span></h2>
+        <c:tabs >
+          <c:tab title="Item One">
+            Item One Content
+          </c:tab>
+          <c:tab title="Item Two">
+            Item Two Content
+          </c:tab>
+          <c:tab title="Item Three">
+            Item Three Content
+          </c:tab>
+        </c:tabs>
+      	<br/>
+    	<br/>  
+    	Code:
+    	<c:code >
+         &lt;sldsx:tabs&gt;
+          &lt;sldsx:tab title=&quot;Item One&quot;&gt;
+            Item One Content
+          &lt;/sldsx:tab&gt;
+          &lt;sldsx:tab title=&quot;Item Two&quot;&gt;
+            Item Two Content
+          &lt;/sldsx:tab&gt;
+          &lt;sldsx:tab title=&quot;Item Three&quot;&gt;
+            Item Three Content
+          &lt;/sldsx:tab&gt;
+        &lt;/sldsx:tabs&gt; 
+        </c:code>
+      </c:container>
+      <c:container class="demo-container" size="large" align="center">
+        <h2 class="slds-text-heading--medium slds-m-bottom--large">Tabs: Scoped</h2>
+        <c:tabs type="scoped">
+          <c:tab title="Item One">
+            Item One Content
+          </c:tab>
+          <c:tab title="Item Two">
+            Item Two Content
+          </c:tab>
+          <c:tab title="Item Three">
+            Item Three Content
+          </c:tab>
+        </c:tabs>
+      	<br/>
+    	<br/>  
+    	Code:
+    	<c:code >
+         &lt;sldsx:tabs type=&quot;scoped&quot;&gt;
+          &lt;sldsx:tab title=&quot;Item One&quot;&gt;
+            Item One Content
+          &lt;/sldsx:tab&gt;
+          &lt;sldsx:tab title=&quot;Item Two&quot;&gt;
+            Item Two Content
+          &lt;/sldsx:tab&gt;
+          &lt;sldsx:tab title=&quot;Item Three&quot;&gt;
+            Item Three Content
+          &lt;/sldsx:tab&gt;
+        &lt;/sldsx:tabs&gt; 
+        </c:code>
+      </c:container>
+	
+</aura:component>

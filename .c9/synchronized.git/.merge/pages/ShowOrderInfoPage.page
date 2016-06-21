@@ -1,0 +1,5 @@
+<apex:page standardController="Vehicle_Order__c">
+    
+    <apex:canvasApp developerName="aqueousshore92031" parameters="{'orderId':'{!Vehicle_Order__c.OrderId__c}'}" width="100%" rendered="{!IF(NOT(ISBLANK(Vehicle_Order__c.OrderId__c)),true,false)}"/>
+    <!---- <p style="IF(Vehicle_Order__c.OrderId__c=='')"> No Result</p> -->
+</apex:page>

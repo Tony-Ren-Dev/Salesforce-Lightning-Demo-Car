@@ -1,0 +1,59 @@
+<aura:component controller="VehicleCompareController" >
+    <ltng:require styles="/resource/1465639409000/ASI_JS_Bootstrap_V3_3_6/ASI_JS_Bootstrap_V3_3_6/dist/css/bootstrap.min.css,
+                          /resource/1465639409000/ASI_JS_Bootstrap_V3_3_6/ASI_JS_Bootstrap_V3_3_6/dist/css/bootstrap.min.css"
+                  scripts="/resource/1465369605000/ASI_JS_JQuery_V1_9_1/js/jquery.min.js,
+                           /resource/1465357095000/materializejs,
+                           /resource/1465639409000/ASI_JS_Bootstrap_V3_3_6/ASI_JS_Bootstrap_V3_3_6/dist/js/bootstrap.js,
+                           /resource/1465379237000/VehicleCompareJS"  afterScriptsLoaded="{!c.doInit}"   />
+    
+    <aura:attribute type="VehicleCompareController" name="counts" />
+    <aura:attribute name="whom" type="String" default="world"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    
+    <div class="container">
+        <div class="jumbotron">
+            <h3>Select Vehicle Model</h3>
+            <div class="row">
+                <div id="ComparePart1"  class="col-xs-6 col-sm-3"></div>
+                <div id="ComparePart2"  class="col-xs-6 col-sm-3"></div>
+                <div id="ComparePart3"  class="col-xs-6 col-sm-3"></div>
+                <div id="ComparePart4"  class="col-xs-6 col-sm-3"></div>
+            </div>
+            
+            
+            <div class="row">
+                <p>
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6"><button type="button" class="btn btn-primary">Compare</button></div>
+                    
+                    
+                </p>
+            </div>
+        </div>
+        
+        
+        <div class="modal fade" id="ChoosePart" role="dialog">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" id="modalTitle" ></h4>
+                    </div>
+                    <div class="modal-body" id="modalBody" >
+                        <div id="VehicleModelPart"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="modalbutton" type="button" class="btn btn-default" data-dismiss="modal"  > <div id="modalbuttonContent" ></div> </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+    </div>
+    
+</aura:component>

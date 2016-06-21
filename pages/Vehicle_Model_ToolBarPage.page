@@ -1,0 +1,140 @@
+<apex:page standardcontroller="Vehicle_Model__c" docType="html-5.0" sidebar="false" showHeader="false">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <apex:stylesheet value="{!URLFOR($Resource.ASI_JS_Bootstrap_V3_3_6, '/ASI_JS_Bootstrap_V3_3_6/dist_less/css/bootstrap.min.css')}" />        
+        <apex:includeScript value="{!URLFOR($Resource.ASI_JS_JQuery_V1_9_1, 'js/jquery.min.js')}" /> 
+        <apex:includeScript value="{!URLFOR($Resource.ASI_JS_JQuery_V1_9_1, 'js/jquery-ui.min.js')}" />        
+		<apex:includeScript value="{!URLFOR($Resource.ASI_JS_Bootstrap_V3_3_6, '/ASI_JS_Bootstrap_V3_3_6/dist_less/js/bootstrap.min.js')}"/>
+        <link href="https://static.cardekho.com/css/global-20160602172412.css" rel="stylesheet" type="text/css"/>
+        <style type="text/css">#emiwidth{width:75px!important}.feelcarblock{margin-top:14px}.feelcarblock a{font-size:12px;border:1px solid #d6d6d6;padding:6px 8px;color:#2f2f2f;border-radius:3px;-webkite-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-ms-border-radius:3px;background:#f8f8f8}.feelcarblock a:hover{border-color:#ef5a28;background:#fff}.newoverviewhighlight h3{color:#353535}.renaulthighlight{font-size:16px;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;line-height:24px;margin-top:10px}</style>
+        <link href="https://static.cardekho.com/css/model-20160602172412.css" rel="stylesheet" type="text/css"/>
+        <link href="https://static.cardekho.com/css/carmodel-rating-20160527182924.css" rel="stylesheet" type="text/css"/>
+        <style type="text/css">
+            .bs .row {
+                margin-right: -15px;
+                margin-left: 0px !important;
+            }
+            
+            .variantblock {
+                margin: 5 auto 25px;
+                border: solid 1px #d7d7d7;
+                border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                -ms-border-radius: 3px;
+                background: #f8f8f8;
+                background-image: -webkit-linear-gradient(bottom,#f5f5f5,#fff);
+                background-image: -moz-linear-gradient(bottom,#f5f5f5,#fff);
+                background-image: -o-linear-gradient(bottom,#f5f5f5,#fff);
+                background-image: linear-gradient(to top,#f5f5f5,#fff);
+                clear: both;
+            }
+            li {
+                display: list-item;
+                text-align: -webkit-match-parent;
+            }
+
+            ul, ol, from {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+            }
+            
+            .variantblock ul {
+                margin: 5px 0 5px 4px;
+            }
+            .variantblock li {
+                border-right: 1px solid #d7d7d7;
+                float: left;
+                height: auto;
+                margin-bottom: 5px;
+                padding: 19px 10px 10px;
+                width: 177px;
+            }
+            .variantblock li .tophead .title {
+                font-size: 14px;
+                color: #3e3e3e;
+                font-family: 'robotobold';
+                text-transform: uppercase;
+                padding: 6px 0 4px;
+            }
+            .variantblock li .tophead {
+                padding-bottom: 8px;
+                border-bottom: solid 1px #c8c8c8;
+                text-align: center;
+            }
+            .variantblock li .tophead .economyicon {
+                background-position: -3px -185px;
+                width: 25px;
+                height: 26px;
+                margin: 0 auto;
+            }
+            .variantblock li .disname .mileage, .variantblock li .disname .mileage2 {
+                color: #3e3e3e;
+                font-size: 14px;
+                width: 90px;
+                float: left;
+                margin-top: 2px;
+            }
+        </Style>
+    </head>
+	<body>
+    	<div class="bs container">
+            <div class="bs row">
+            	<div class="bs col-sm-8  leftPanel">
+
+                    <div class="bs row variantblock">
+                         <ul>
+                            <li><div class="tophead">
+                                  <div class="sprite economyicon"></div>
+                                  <div class="title">Economy</div>
+                                </div>
+                                <div class="disname">
+                                      <div class="mileage">Mileage</div>
+                                      <div class="kmpl"><span itemprop="fuelEfficiency">16.5&nbsp;kmpl</span></div>
+                                      <div class="clear"></div>
+                                </div>
+                             </li>
+                            <li>
+                                <div class="tophead">
+                                  <div class="sprite performanceicon"></div>
+                                  <div class="title">Performance</div>
+                                </div>
+                                <div class="disname">
+                                              <div class="mileage">Engine</div>
+                                              <div class="kmpl"><span itemprop="vehicleEngine">1198 cc&nbsp;</span></div>
+                                              <div class="clear"></div>
+                                </div>                           
+                            </li>
+                            <li>
+                                <div class="tophead">
+                                  <div class="sprite comforticon"></div>
+                                  <div class="title">Comfort</div>
+                                </div>
+                             </li>
+                            <li>
+                                <div class="tophead">
+                                  <div class="sprite safetyicon"></div>
+                                  <div class="title">Safety</div>
+                                </div>
+                             </li>   
+                            <li>
+                                <div class="tophead">
+                                  <div class="sprite emiicon"></div>
+                                  <div class="title">EMI</div>
+                                </div>
+                             </li>                                
+                        </ul>
+                    </div>
+                    
+                </div>
+            	<div class="bs col-sm-4 rightPanel">
+                    <img src="{!Vehicle_Model__c.Image_URL__c}" class="bs img-responsive" />
+                </div>
+            </div>
+        </div>
+    
+    </body>
+</apex:page>

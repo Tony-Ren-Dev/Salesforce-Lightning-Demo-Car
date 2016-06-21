@@ -1,0 +1,102 @@
+<apex:page id="checkin" standardController="Account" extensions="CheckInController" showheader="false" doctype="html-5.0" standardStylesheets="false">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <apex:stylesheet value="{!URLFOR($Resource.ASI_JS_Bootstrap_V3_3_6, '/ASI_JS_Bootstrap_V3_3_6/dist_less/css/bootstrap.min.css')}" />        
+        <apex:includeScript value="{!URLFOR($Resource.ASI_JS_JQuery_V1_9_1, 'js/jquery.min.js')}" /> 
+        <apex:includeScript value="{!URLFOR($Resource.ASI_JS_JQuery_V1_9_1, 'js/jquery-ui.min.js')}" />        
+		<apex:includeScript value="{!URLFOR($Resource.ASI_JS_Bootstrap_V3_3_6, '/ASI_JS_Bootstrap_V3_3_6/dist_less/js/bootstrap.min.js')}"/>
+        <link href="https://static.cardekho.com/css/global-20160602172412.css" rel="stylesheet" type="text/css"/>
+        <style type="text/css">#emiwidth{width:75px!important}.feelcarblock{margin-top:14px}.feelcarblock a{font-size:12px;border:1px solid #d6d6d6;padding:6px 8px;color:#2f2f2f;border-radius:3px;-webkite-border-radius:3px;-moz-border-radius:3px;-o-border-radius:3px;-ms-border-radius:3px;background:#f8f8f8}.feelcarblock a:hover{border-color:#ef5a28;background:#fff}.newoverviewhighlight h3{color:#353535}.renaulthighlight{font-size:16px;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;line-height:24px;margin-top:10px}</style>
+        <link href="https://static.cardekho.com/css/model-20160602172412.css" rel="stylesheet" type="text/css"/>
+        <link href="https://static.cardekho.com/css/carmodel-rating-20160527182924.css" rel="stylesheet" type="text/css"/>
+<style>
+.margin {margin-top:2px;margin-bottom:2px;}
+</style>
+
+<apex:form id="form">
+  <div class="container-fluid">
+    <div class="row">
+      <apex:outputpanel id="error" styleclass="bg-info text-primary col-md-12 col-xs-12" layout="block">
+        {!error}
+      </apex:outputpanel>
+    </div>
+    <div class="row">
+      <div class="input-group">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-pushpin"></span></span>
+        <apex:inputTextArea value="{!text}" styleclass="form-control col-md-12" html-placeholder="Share..." rows="5"/>
+      </div>
+    </div>
+
+    <div class="row margin">
+      <div>
+        <button onclick="geoFindMe();" class="btn margin col-md-6 col-xs-6" type="button">Reset</button>
+      </div>
+      <div>
+        <apex:commandbutton rerender="error" onclick="" action="{!checkin}" value="Check-In" styleclass="btn btn-success margin col-md-6 col-xs-6" oncomplete="$('.loading').css({ 'display':'none'});"></apex:commandbutton>
+      </div>
+    </div>
+   </div>
+   <apex:inputHidden html-class="geoloc" id="geoloc" value="{!geolocation}"/>
+</apex:form>
+
+<apex:outputpanel id="info">
+  <div id="out" class="bg-success"></div>
+</apex:outputpanel>
+
+<script>
+
+$(document).ready(function() {
+  if ("geolocation" in navigator) {
+    console.log('Geolocation available');
+    geoFindMe();
+  } else {
+    alert('Geolocation un-available');
+  }
+  $('.btn-success').click(function(){
+  if($('.loading').length==0)
+    $('<div><span style="position:absolute;display:block;left:45%;top:50%;color:white">Saving...</div>').prependTo(document.body);
+  $('.loading').css({ "position":"absolute",
+                      "display":"block",
+                      "left":"0%",
+                      "top":"0",
+                      "height":"100%",
+                      "width":"100%",
+                      "z-index":"1010",
+                      "background-color":"rgba(0, 0, 0, 0.72)"} );
+    });
+ });
+
+function geoFindMe() {
+  var output = document.getElementById("out");
+
+  $(".bg-info").html("");
+
+  if (!navigator.geolocation){
+    output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+    return;
+  }
+
+function success(position) {
+  var latitude  = position.coords.latitude;
+  var longitude = position.coords.longitude;
+
+  var img = '<img width="100%" src="http://maps.googleapis.com/maps/api/staticmap?markers=color:red%7Clabel:A%7C' + latitude + ',' + longitude + '&center=' + latitude + ',' + longitude + '&zoom=16&size=720x720&sensor=false"/>';
+
+  $('.geoloc').val(latitude+','+longitude);
+  output.innerHTML=img;
+  $(".bg-info").html("");
+};
+
+ function error() {
+   $(".bg-info").html("Unable to retrieve your location");
+   $(".bg-success").html("");
+ };
+
+ $(".bg-info").html("Locating...");
+ $(".bg-success").html("Locating...");
+
+ navigator.geolocation.getCurrentPosition(success, error);
+}
+</script>
+</apex:page>

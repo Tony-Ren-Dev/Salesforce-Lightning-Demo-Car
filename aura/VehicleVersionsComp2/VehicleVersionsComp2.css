@@ -1,0 +1,32 @@
+.THIS .hideDiv {
+     display: none;
+}
+.THIS.Inputwidth{
+    width:6em;
+}
+.THIS .fontweight{
+    font-weight: bold;
+}
+.THIS.borderstyle{
+    border-style: solid;
+    border-width: medium;
+}
+.THIS .inputdate{
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+}
+
+.THIS .SelectField{
+    width:6em;
+    height: 2em !important;
+    padding-top: 4px !important;
+    padding-right: 12px !important;
+    padding-bottom: 6px !important;
+    padding-left: 12px !important;
+}

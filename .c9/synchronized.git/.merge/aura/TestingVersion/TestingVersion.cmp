@@ -1,0 +1,7 @@
+<aura:component controller="VehicleVersionController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+	   <ltng:require styles="/resource/1465639409000/ASI_JS_Bootstrap_V3_3_6/ASI_JS_Bootstrap_V3_3_6/dist/css/bootstrap.min.css"
+                  scripts="/resource/1465786063000/modal/jquery-2.2.4.js,
+                           /resource/1465786063000/modal/bootstrap.min.js,
+                           /resource/1465784266000/VehicleManageAllJS"      />
+    Testing
+</aura:component>

@@ -1,0 +1,126 @@
+<apex:page standardController="Vehicle_Order__c"   extensions="SignatureController"   sidebar="false" readOnly="true" title="Display Page" docType="html-5.0" showHeader="false">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>   
+        
+        <link rel="stylesheet" href="https://cdn.rawgit.com/LikeHongKong/signature_pad/master/example/css/signature-pad.css" />
+        
+        
+        <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-39365077-1']);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+        </script>
+    </head>
+    
+    
+    <body onselectstart="return false">
+        
+        
+        <div id="signature-pad" class="m-signature-pad">
+            <div class="m-signature-pad--body">
+                <canvas></canvas>
+            </div>
+            <div class="m-signature-pad--footer">
+                <div class="description">Sign above</div>
+                <button type="button" class="button clear" data-action="clear">Clear</button>
+                <button type="button" class="button save" data-action="save">Save</button>
+            </div>
+        </div>
+        <!----- <script type="text/javascript" src="https://cdn.rawgit.com/LikeHongKong/signature_pad/master/example/js/signature_pad.js"></script>  --->
+<script type="text/javascript" src="https://cdn.rawgit.com/LikeHongKong/signature_pad/master/example/js/signature_pad.js"></script>  
+
+
+
+
+<script type="text/javascript">
+    var wrapper = document.getElementById("signature-pad"),
+        clearButton = wrapper.querySelector("[data-action=clear]"),
+        saveButton = wrapper.querySelector("[data-action=save]"),
+        canvas = wrapper.querySelector("canvas"),
+        signaturePad;
+var HeaderId='{!Header.Id}';
+console.log(HeaderId);
+
+// Adjust canvas coordinate space taking into account pixel ratio,
+// to make it look crisp on mobile devices.
+// This also causes canvas to be cleared.
+function resizeCanvas() {
+    // When zoomed out to less than 100%, for some very strange reason,
+    // some browsers report devicePixelRatio as less than 1
+    // and only part of the canvas is cleared then.
+    var ratio =  Math.max(window.devicePixelRatio || 1, 1);
+    canvas.width = canvas.offsetWidth * ratio;
+    canvas.height = canvas.offsetHeight * ratio;
+    canvas.getContext("2d").scale(ratio, ratio);
+}
+
+window.onresize = resizeCanvas;
+resizeCanvas();
+
+signaturePad = new SignaturePad(canvas);
+
+clearButton.addEventListener("click", function (event) {
+    signaturePad.clear();
+});
+
+saveButton.addEventListener("click", function (event) {
+    if (signaturePad.isEmpty()) {
+        alert("Please provide signature first.");
+    } else {
+        //window.open(signaturePad.toDataURL());
+        var dataurl=signaturePad.toDataURL();
+        console.log(dataurl);
+        console.log(dataurl.substring(22, dataurl.length));
+        var tempurl=dataurl.substring(22, dataurl.length);
+        Visualforce.remoting.Manager.invokeAction(
+                    '{!$RemoteAction.SignatureController.insertSignature}',HeaderId ,tempurl
+                    , showresult
+                    , {escape: true}
+                );  
+        
+    }
+});
+
+function showresult(result, event){
+    
+    if (event.status) {
+        if (result) {
+            console.log(result);
+            
+            //window.location.href='/'+result;
+            var HeaderId='{!Header.Id}';
+            window.onload = window.setTimeout(navigate(HeaderId),3000);
+        }
+    }
+}
+
+
+function redirect(urlid){//
+    window.location.href='/'+urlid;
+}
+
+
+function navigate (recordId){
+    
+    if (typeof sforce !== 'undefined'){
+        sforce.one.navigateToSObject(recordId);
+    } else {
+        //.top to deal with the fact that publisher actions in chatter feed are iframe
+        window.top.location.href= "/" + recordId;
+    }
+    
+}
+
+</script>
+
+
+</body>
+</apex:page>

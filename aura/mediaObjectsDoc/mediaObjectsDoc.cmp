@@ -1,0 +1,54 @@
+<aura:component >
+     <c:container class="demo-container" size="large" align="center">
+        <h2 class="slds-text-heading--medium slds-m-bottom--large">Media Object: Base</h2>
+          <c:mediaObject imageSrc="/resource/slds/assets/images/avatar1.jpg">
+          	Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor esse quis.
+          </c:mediaObject>
+        <br/>
+        Code:
+        <c:code >
+          &lt;sldsx:mediaObject imageSrc=&quot;/resource/slds/assets/images/avatar1.jpg&quot;&gt;
+          &nbsp;Sit nulla est ex deserunt...
+          &lt;/sldsx:mediaObject&gt;
+       </c:code>
+     </c:container>
+      <c:container class="demo-container" size="large" align="center">
+        <h2 class="slds-text-heading--medium slds-m-bottom--large">Media Object: Center</h2>
+          <c:mediaObject imageSrc="/resource/slds/assets/images/avatar1.jpg" center="true">
+          	Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor esse quis.
+          </c:mediaObject>
+        <br/>
+        Code:
+        <c:code >
+          &lt;sldsx:mediaObject imageSrc=&quot;/resource/slds/assets/images/avatar1.jpg&quot; center=&quot;true&quot;&gt;
+		   Sit nulla est ex deserunt...
+          &lt;/sldsx:mediaObject&gt;
+          </c:code>
+     </c:container>
+      <c:container class="demo-container" size="large" align="center">
+        <h2 class="slds-text-heading--medium slds-m-bottom--large">Media Object: Reverse</h2>
+          <c:mediaObject imageSrc="/resource/slds/assets/images/avatar1.jpg" reverse="true">
+          	Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor esse quis.
+          </c:mediaObject>
+        <br/>
+        Code:
+        <c:code >
+          &lt;sldsx:mediaObject  imageSrc=&quot;/resource/slds/assets/images/avatar1.jpg&quot; reverse=&quot;true&quot; &gt;
+			Sit nulla est ex deserunt...
+          &lt;/sldsx:mediaObject&gt;
+        </c:code>
+     </c:container>
+     <c:container class="demo-container" size="large" align="center">
+        <h2 class="slds-text-heading--medium slds-m-bottom--large">Media Object: Double</h2>
+         <c:mediaObject double="true" imageSrc="/resource/slds/assets/images/avatar1.jpg" rightImageSrc="/resource/slds/assets/images/avatar2.jpg">
+          	Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor esse quis.
+          </c:mediaObject>
+        <br/>
+        Code:
+        <c:code >
+    	&lt;sldsx:mediaObject double=&quot;true&quot; imageSrc=&quot;/resource/slds/assets/images/avatar1.jpg&quot; rightImageSrc=&quot;/resource/slds/assets/images/avatar2.jpg&quot; &gt;
+         Sit nulla est ex deserunt....
+        &lt;/sldsx:mediaObject&gt;
+        </c:code>
+     </c:container>
+</aura:component>

@@ -1,0 +1,86 @@
+<aura:component controller="VehicleVersionController" >
+    <ltng:require scripts="/resource/1465786063000/modal/jquery-2.2.4.js,
+                           /resource/1465794709000/VehicleManageAllJS,
+                           /resource/1465786063000/modal/bootstrap.min.js"   
+                  styles="/resource/1465639409000/ASI_JS_Bootstrap_V3_3_6/ASI_JS_Bootstrap_V3_3_6/dist/css/bootstrap.min.css" afterScriptsLoaded="{!c.doInit}"   />
+    
+    <aura:attribute type="VehicleVersionController" name="counts" />
+    
+    
+    <div class="container">
+        <div class="row" style= " margin-top: 1em">
+            <br/>
+            
+        </div>
+        <div class="row" style= " margin-top: 1em">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4"> 
+                
+                <div style="display: inline;text-align: right; float: left;">
+                    <input type="text" class="form-control" id="SearchPartId" style="width:90%"/> 
+                </div>
+                
+                <div style="display: inline;text-align: left;float: left;">
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> </button>
+                </div>
+                
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        
+        <div class="row" style= " margin-top: 1em">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">1/2 Page</div>
+            <div class="col-md-4"></div>
+        </div>
+        
+        <div class="row" style= " margin-top: 1em">
+            <div class="col-md-6"><button type="button" class="btn btn-default">Previous</button></div>
+            <div class="col-md-6"><button type="button" class="btn btn-default" style="float: right;">Next</button></div>
+        </div>
+        
+        <div class="row" style= " margin-top: 1em">
+            <div id="ListView"></div>
+        </div>
+        
+        
+        
+        <div class="row" style= " margin-top: 1em">
+            <div id="CompareTable"></div>
+        </div>
+        
+        
+        
+        <div class="modal fade" id="ModalPart" role="dialog">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" id="modalTitle" ></h4>
+                    </div>
+                    <div class="modal-body" id="modalBody" >
+                        <div id="modalbodyPart"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="modalbutton" type="button" class="btn btn-default" data-dismiss="modal"  > <div id="modalbuttonContent" ></div> </button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <button onclick="{!c.Pressbtn}" id="12321234">test</button>       
+        
+          <div>
+        <input type="file" class="file" aura:id="file" />
+        <ui:button label="Save" press="{!c.save}"/>
+        
+        <div aura:id="uploading" class="notUploading">
+           Uploading...
+    	</div>
+    </div>
+        
+    </div>
+    
+</aura:component>

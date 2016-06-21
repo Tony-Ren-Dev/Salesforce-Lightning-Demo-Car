@@ -1,0 +1,124 @@
+<aura:component >
+        <!--<ltng:require styles="/resource/1465639409000/ASI_JS_Bootstrap_V3_3_6/ASI_JS_Bootstrap_V3_3_6/dist/css/bootstrap.min.css,
+                          /resource/1465878109000/ASI_JS_JQuery_V1_9_1/css/jquery-ui.css,
+                          /resource/1465873790000/noUiSlider/nouislider.min.css" 
+                  scripts="/resource/1465786063000/modal/jquery-2.2.4.js,
+                           /resource/1465878109000/ASI_JS_JQuery_V1_9_1/js/jquery-ui.min.js,
+                           /resource/1465639409000/ASI_JS_Bootstrap_V3_3_6/ASI_JS_Bootstrap_V3_3_6/dist/js/bootstrap.js,
+                           /resource/1465873790000/noUiSlider/nouislider.min.js"    />
+    
+    <aura:attribute name="numbers" type="List"/>
+    <ui:button press="{!c.getNumbers}" label="Display Numbers" />
+    <ui:button press="{!c.getN2}" label="Display 2" />
+    
+    <aura:iteration var="num" items="{!v.numbers}">
+        {!num.value}
+    </aura:iteration>
+   -->
+    
+     <ltng:require styles="/resource/1465970842000/slds/assets/styles/salesforce-lightning-design-system.css"/>
+    <ltng:require styles="/resource/1465970842000/slds/assets/styles/salesforce-lightning-design-system-vf.css"/>
+     <ltng:require styles="/resource/1465970842000/slds/assets/styles/salesforce-lightning-design-system-ltng.css" />
+      <aura:attribute name="title" type="String" default="Modal"/>
+
+    
+<div class="slds">
+    <c:button type="neutral" press="{!c.showOppmodal}">Button</c:button>
+</div>
+    
+  <div class="slds" style="margin-top:10px;margin-left:10px;">
+      
+   
+      
+    <span class="slds-icon__container slds-icon-standard-account">
+        <c:svg1 class="slds-icon" xlinkHref="/resource/1465970842000/slds/assets/icons/standard-sprite/svg/symbols.svg#answer_best" />
+        <span class="slds-assistive-text">Account Icon</span>
+    </span>
+      
+  </div>
+    
+    
+     <button class="slds-button slds-button--neutral">Cancel</button>
+    
+      <div class="aotp">
+      <div class="container">
+         <!-- Button triggers a modal dialog-->  
+         <div class="row well">     
+            <button aura:id="modalToggle" class="btn btn-primary btn-lg" onclick="{!c.ShowModal1}">
+            Launch Modal - JavaScript
+            </button>            
+         </div>
+         <br />
+         <!-- modal dialog -->
+         <div class="modal fade" aura:id="modalDlg" id="modalDlgDiv">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                     <h4 class="modal-title">Dialog Title</h4>
+                  </div>
+                  <div class="modal-body">
+                     GlobalId = {!globalId}  <br/> This is Dialog Body
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+               <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+         </div>
+         <!-- /.modal -->
+      </div>
+   </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="slds">
+
+  <div aria-hidden="true" role="dialog" class="slds-modal slds-modal--large slds-fade-in-hide" aura:id="modaldialog" >
+
+    <div class="slds-modal__container" >
+        <div class="slds-modal__header" style="border-style: solid;border-width: medium;">
+          <h2 class="slds-text-heading--medium">List Of Opportunities Closed Won</h2>
+           <button class="slds-button slds-button--icon-inverse slds-modal__close" onclick="{!c.hideModal}">
+            <c:svg1 class="slds-button__icon slds-button__icon--large" xlinkHref="/resource/1465970842000/slds/assets/icons/action-sprite/svg/symbols.svg#close"/>
+            <span class="slds-assistive-text">Close</span>
+          </button>
+        </div>
+        <div class="slds-modal__content">
+            <div>
+                bODY
+            </div>
+        </div>
+
+      <div class="slds-modal__footer">
+        <div class="slds-x-small-buttons--horizontal">
+          <button class="slds-button slds-button--neutral" onclick="{!c.hideModal}">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+    <div class="slds-backdrop slds-backdrop--hide" aura:id="backdrop">
+      
+  </div>
+
+</div>
+    
+    
+    
+    
+    
+</aura:component>

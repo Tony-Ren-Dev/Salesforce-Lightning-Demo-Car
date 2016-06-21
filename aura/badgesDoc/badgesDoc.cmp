@@ -1,0 +1,18 @@
+<aura:component access="GLOBAL">
+	<c:container class="demo-container" size="large" align="center">
+        <h2 class="slds-text-heading--medium slds-m-bottom--large">Badges: Base</h2>
+        <c:badge value="Label"/>
+        <c:badge theme="default" value="Label"/>
+        <c:badge theme="shade" value="Label"/>
+        <c:badge theme="inverse" value="Label"/> 
+        <br/>
+        <br/>
+        Code:
+        <c:code >
+        &lt;sldsx:badge value=&quot;Label&quot;/&gt;
+        &lt;sldsx:badge theme=&quot;default&quot; value=&quot;Label&quot;/&gt;
+        &lt;sldsx:badge theme=&quot;shade&quot; value=&quot;Label&quot;/&gt;
+        &lt;sldsx:badge theme=&quot;inverse&quot; value=&quot;Label&quot;/&gt;
+        </c:code>
+    </c:container>
+</aura:component>
